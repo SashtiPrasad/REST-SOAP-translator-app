@@ -1,0 +1,25 @@
+
+version: '3.9'
+services:
+  app:
+    image: node:latest
+    volumes:
+      - ./:/code
+    container_name: app
+    restart: always
+    ports:
+      - 8000:8080
+    command: ["bin/bash"]
+    stdin_open: true
+    tty: true
+  client:
+    image: node:latest
+    volumes:
+      - ./:/code
+    container_name: client
+    restart: always
+    ports:
+      - 8001:8080
+    command: [ "bin/bash" ]
+    stdin_open: true
+    tty: true
